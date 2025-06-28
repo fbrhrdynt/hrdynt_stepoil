@@ -1,0 +1,355 @@
+@php
+    $projects = \App\Models\Project::select('id_project', 'operator_name', 'drillingrig')->get();
+@endphp
+
+<!-- Add Account Modal -->
+<div id="addAccountModal" style="display:none;" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-xl mx-auto p-6 relative">
+        <!-- Header -->
+        <div class="flex justify-between items-center border-b pb-2 mb-4">
+            <h3 class="text-xl font-semibold">Add New Account</h3>
+            <button id="closeModalBtn" class="text-gray-600 hover:text-red-600 text-2xl leading-none">&times;</button>
+        </div>
+            <form id="addAccountForm" method="POST" action="{{ route('accounts.store') }}">
+                @csrf
+                <div class="hD0sTTDgbxakubcHVW2X xCPtuxM4_gihvpPwv9bX iHPddplqYvrN6qWgvntn AqVNvLG_H6VHhym2yKMp">
+                    <div>
+                        <label for="employee_id" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S">Employee ID</label>
+                        <input type="text" name="employee_id" id="employee_id" class="custom-input" required>
+                        <small class="text-sm text-gray-500 mt-1 block">
+                            <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i>
+                            This will be used as the login username.
+                        </small>
+                    </div>
+
+                    <div>
+                        <label for="employee_name" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S">Employee Name</label>
+                        <input type="text" name="employee_name" id="employee_name" class="custom-input" required>
+                    </div>
+
+                    <div>
+                        <label for="email" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S">Email</label>
+                        <input type="email" name="email" id="email" class="custom-input">
+                    </div>
+
+                    <div>
+                        <label for="kode_login" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S">Username</label>
+                        <input type="text" name="kode_login" id="kode_login" class="custom-input" required>
+                        <small id="usernameFeedback" class="text-sm mt-1 block text-gray-500">
+                            Checking username availability...
+                        </small>
+                    </div>
+
+                    <div>
+                        <label for="pass_login" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Password</label>
+                        <div class="relative">
+                            <input type="password" name="pass_login" id="pass_login"
+                                class="_Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ mveJTCIb2WII7J4sY22F pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk jtAJHOc7mn7b4IKRO59D olxDi3yL6f0gpdsOFDhx c8dCx6gnV43hTOLV6ks5 __9sbu0yrzdhGIkLWNXl g_BHforHBdFj0wG489Gm IBMq7Y_ATQyy_WCDKR_v Mmx5lX7HVdrWCgh3EpTP jqg6J89cvxmDiFpnV56r OyABRrnTV_kvHV7dJ0uE B6xjPKbspU6m_EWVKPv2 q6szSHqGtBufkToFe_s5 KpCMWe32PQyrSFbZVput border"
+                                placeholder="Enter Password" required oninput="validatePassword()">
+                            <span class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onclick="togglePassword('pass_login')">
+                                <i class="fa-solid fa-eye text-gray-600" id="togglePass_login"></i>
+                            </span>
+                        </div>
+                        <small id="passwordFeedback" class="text-sm mt-1 block">
+                            Password must contain at least one uppercase, one lowercase, one digit, and one special character (. , ! @ $)
+                        </small>
+                    </div>
+
+                    <div>
+                        <label for="confirm_password" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S c8dCx6gnV43hTOLV6ks5 ezMFUVl744lvw6ht0lFe __9sbu0yrzdhGIkLWNXl OyABRrnTV_kvHV7dJ0uE">Confirm Password</label>
+                        <div class="relative">
+                            <input type="password" name="confirm_password" id="confirm_password"
+                                class="_Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_ mveJTCIb2WII7J4sY22F pXhVRBC8yaUNllmIWxln vpDN1VEJLu5FmLkr5WCk jtAJHOc7mn7b4IKRO59D olxDi3yL6f0gpdsOFDhx c8dCx6gnV43hTOLV6ks5 __9sbu0yrzdhGIkLWNXl g_BHforHBdFj0wG489Gm IBMq7Y_ATQyy_WCDKR_v Mmx5lX7HVdrWCgh3EpTP jqg6J89cvxmDiFpnV56r OyABRrnTV_kvHV7dJ0uE B6xjPKbspU6m_EWVKPv2 q6szSHqGtBufkToFe_s5 KpCMWe32PQyrSFbZVput border"
+                                placeholder="Re-type Password" required oninput="validateConfirmPassword()">
+                            <span class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onclick="togglePassword('confirm_password')">
+                                <i class="fa-solid fa-eye text-gray-600" id="toggleConfirm_password"></i>
+                            </span>
+                        </div>
+                        <small id="confirmPasswordFeedback" class="text-sm mt-1 block">
+                            Make sure it matches the password above.
+                        </small>
+                    </div>
+
+
+                    <div>
+                        <label for="level" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S">Level</label>
+                        <select name="level" id="level" class="custom-input" required>
+                            <option value="">-- Select Level --</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Operator">Operator</option>
+                            <option value="Staff">Staff</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="id_project" class="TR_P65x9ie7j6uxFo_Cs _Vb9igHms0hI1PQcvp_S">Project Assignment</label>
+                        <select name="id_project" id="id_project"
+                                class="select2 _Vb9igHms0hI1PQcvp_S t6gkcSf0Bt4MLItXvDJ_" required>
+                            <option value="">-- Select Project --</option>
+                            <option value="0" class="all-project-option">ALL Projects</option>
+                            @foreach($projects as $project)
+                                <option value="{{ $project->id_project }}" class="text-red-500">
+                                    {{ $project->operator_name }} - {{ $project->drillingrig }}
+                                </option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="Q_jg_EPdNf9eDMn1mLI2 UYOSZJ1_pv3B5nt1ujCP rvdRhGyExrNYTA6euxsF SQf297smyJVNzzOO3iQL xr7CqaTHxTvDOrwAH2SW">
+                    <button type="submit" id="submitButton"
+                            class="_k0lTW0vvzboctTxDi2R t6gkcSf0Bt4MLItXvDJ_ Q_jg_EPdNf9eDMn1mLI2 Nm7xMnguzOx6J5Ao7yCU custom-btn-submit">
+                        <i class="fa-solid fa-save"></i> &nbsp; Add Account
+                    </button>
+
+                    <button type="button" class="custom-btn-cancel" onclick="closeModal()">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const usernameInput = document.getElementById('kode_login');
+    const feedback = document.getElementById('usernameFeedback');
+    const submitBtn = document.getElementById('submitButton');
+    let timeout = null;
+
+    function setButtonState(disabled) {
+        submitBtn.disabled = disabled;
+        submitBtn.classList.toggle('opacity-50', disabled);
+        submitBtn.classList.toggle('cursor-not-allowed', disabled);
+    }
+
+    usernameInput.addEventListener('input', function () {
+        clearTimeout(timeout);
+
+        const username = this.value.trim();
+        feedback.classList.remove('text-green-600', 'text-red-500');
+        feedback.textContent = 'Checking username availability...';
+        feedback.classList.add('text-gray-500');
+        setButtonState(true); // disable sementara
+
+        if (username.length < 3) {
+            feedback.textContent = 'Username too short';
+            feedback.classList.remove('text-gray-500');
+            feedback.classList.add('text-red-500');
+            setButtonState(true);
+            return;
+        }
+
+        timeout = setTimeout(() => {
+            fetch(`{{ route('accounts.checkUsername') }}?kode_login=${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    feedback.classList.remove('text-gray-500');
+                    if (data.exists) {
+                        feedback.textContent = '❌ Username already taken';
+                        feedback.classList.add('text-red-500');
+                        usernameInput.classList.add('border-red-500');
+                        usernameInput.classList.remove('border-green-500');
+                        setButtonState(true);
+                    } else {
+                        feedback.textContent = '✅ Username available';
+                        feedback.classList.add('text-green-600');
+                        usernameInput.classList.add('border-green-500');
+                        usernameInput.classList.remove('border-red-500');
+                        setButtonState(false);
+                    }
+                })
+                .catch(() => {
+                    feedback.textContent = '⚠️ Error checking username';
+                    feedback.classList.add('text-red-500');
+                    setButtonState(true);
+                });
+        }, 500); // debounce
+    });
+});
+
+function closeModal() {
+    const modal = document.getElementById("addAccountModal");
+    modal.classList.add("hidden"); // sembunyikan modal
+    modal.style.display = "none";  // pastikan juga dihilangkan
+    document.getElementById("addAccountForm").reset();
+
+    // Reset styling & feedback
+    document.getElementById('usernameFeedback').textContent = '';
+    document.getElementById('kode_login').classList.remove('border-red-500', 'border-green-500');
+    document.getElementById('pass_login').classList.remove('border-red-500', 'border-green-500');
+    document.getElementById('confirm_password').classList.remove('border-red-500', 'border-green-500');
+}
+
+</script>
+
+
+<script>
+    function togglePassword(fieldId) {
+        const input = document.getElementById(fieldId);
+        const icon = document.getElementById('toggle' + fieldId.charAt(0).toUpperCase() + fieldId.slice(1));
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+
+    function validatePassword() {
+        const password = document.getElementById('pass_login');
+        const feedback = document.getElementById('passwordFeedback');
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\.\!\@\$\#\%\&\*\^\-])[A-Za-z\d\.\!\@\$\#\%\&\*\^\-]{6,}$/;
+
+        if (regex.test(password.value)) {
+            password.classList.remove('border-red-500');
+            password.classList.add('border-green-500');
+            feedback.textContent = "Strong password ✔️";
+            feedback.classList.remove('text-red-500');
+            feedback.classList.add('text-green-600');
+        } else {
+            password.classList.remove('border-green-500');
+            password.classList.add('border-red-500');
+            feedback.textContent = "Password must contain at least one uppercase, one lowercase, one digit, and one special character (. , ! @ $)";
+            feedback.classList.remove('text-green-600');
+            feedback.classList.add('text-red-500');
+        }
+
+        validateConfirmPassword();
+    }
+
+    function validateConfirmPassword() {
+        const password = document.getElementById('pass_login');
+        const confirmPassword = document.getElementById('confirm_password');
+        const feedback = document.getElementById('confirmPasswordFeedback');
+
+        if (confirmPassword.value === password.value && confirmPassword.value !== '') {
+            confirmPassword.classList.remove('border-red-500');
+            confirmPassword.classList.add('border-green-500');
+            feedback.textContent = "Passwords match ✔️";
+            feedback.classList.remove('text-red-500');
+            feedback.classList.add('text-green-600');
+        } else {
+            confirmPassword.classList.remove('border-green-500');
+            confirmPassword.classList.add('border-red-500');
+            feedback.textContent = "Passwords do not match.";
+            feedback.classList.remove('text-green-600');
+            feedback.classList.add('text-red-500');
+        }
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const level = document.getElementById('level');
+        const idProject = $('#id_project');
+
+        const allProjectsOption = new Option("ALL Projects", "0", false, false);
+        const placeholderOption = new Option("-- Select Project --", "", true, true);
+        const projectOptions = [
+            @foreach($projects as $project)
+                { id: '{{ $project->id_project }}', 
+                    text: '{{ $project->operator_name }} - {{ $project->drillingrig }}' },
+            @endforeach
+        ];
+
+        function initSelect2(options) {
+            idProject.empty(); // clear options
+            idProject.select2({
+                data: options,
+                placeholder: "-- Select Project --",
+                width: '100%',
+                dropdownAutoWidth: true,
+                allowClear: true
+            });
+        }
+
+        function updateProjectOptionsByLevel(levelVal) {
+            let options = [{ id: '', text: '-- Select Project --' }];
+
+            if (levelVal === 'Supervisor') {
+                options.push({ id: '0', text: 'ALL Projects' });
+            }
+
+            options = options.concat(projectOptions);
+            initSelect2(options);
+        }
+
+        // Init first
+        updateProjectOptionsByLevel(level.value);
+
+        // On change level
+        level.addEventListener('change', function () {
+            updateProjectOptionsByLevel(this.value);
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+
+document.getElementById('addAccountForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: data.message,
+                confirmButtonText: 'OK'
+            }).then(() => {
+                // Optional: reset form or reload page
+                form.reset();
+                location.reload(); // kalau ingin refresh data table misalnya
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data.message || 'Something went wrong.',
+            });
+        }
+    })
+    .catch(error => {
+        // Handle validation error (422) atau lainnya
+        error.json().then(err => {
+            if (err.errors) {
+                let messages = Object.values(err.errors).flat().join('\n');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validation Error',
+                    text: messages
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Server Error',
+                    text: error.statusText
+                });
+            }
+        }).catch(() => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Unexpected Error',
+                text: 'Something went wrong.'
+            });
+        });
+    });
+});
+</script>
