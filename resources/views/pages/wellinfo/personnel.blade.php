@@ -34,7 +34,7 @@
                 confirmButtonText: 'Close'
             });
         });
-    </script>
+    </script> 
 @endif
 
 
