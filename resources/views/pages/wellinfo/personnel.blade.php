@@ -7,7 +7,7 @@
         <div class="container mx-auto px-4 sm:px-8">
             <div class="py-8">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-semibold leading-tight">BSS Engineers</h2>
+                    <h2 class="text-2xl font-semibold leading-tight">Step Oil Tools Engineers</h2>
                 </div>
 
 @if(session('success'))

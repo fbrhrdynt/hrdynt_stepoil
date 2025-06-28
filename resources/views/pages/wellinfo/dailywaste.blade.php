@@ -63,7 +63,7 @@
                         <!-- 🟢  ACTIVITIES -->
                         <div class="row mb-2">
                             <div class="col col-md-2">
-                                BSS ACTIVITIES
+                                STEP OIL TOOLS ACTIVITIES
                             </div>
                             <div class="col col-md-6">
                                 <span style="font-size: small;"><i>* Max 230 Character.</i></span>

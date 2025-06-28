@@ -268,8 +268,8 @@ function onPrintClick() {
             datasets: [{
                 label: '% Oil-on-Cuttings',
                 data: oocData,
-                backgroundColor: 'rgb(217, 0, 22)',
-                borderColor: 'rgb(210, 56, 72)',
+                backgroundColor: 'rgb(38, 117, 68)',
+                borderColor: 'rgb(27, 85, 49)',
                 borderWidth: 1
             }]
         },

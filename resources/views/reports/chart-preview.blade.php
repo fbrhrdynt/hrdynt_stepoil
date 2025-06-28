@@ -29,7 +29,7 @@
                         {{ $retorts->rt_cf2_ooc ?? '0' }},
                         {{ $retorts->rt_cf3_ooc ?? '0' }}
                     ],
-                    backgroundColor: 'rgb(217, 0, 22)'
+                    backgroundColor: 'rgb(38, 117, 68)'
                 }]
             },
             options: {

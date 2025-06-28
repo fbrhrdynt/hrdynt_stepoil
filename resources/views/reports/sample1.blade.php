@@ -18,7 +18,7 @@
             
         }
         .bghijau{
-            background-color: #d90017;
+            background-color: #267544;
             color: white;
             text-align: center;
         }
@@ -44,7 +44,7 @@
     <table width="100%">
         <tr class="center">
             @php
-                $logoPath = public_path('baroid.jpeg');
+                $logoPath = public_path('stepoil_logo.jpeg');
             @endphp
             <td width="25%">
                 @if(file_exists($logoPath))
@@ -57,8 +57,8 @@
             </td>
 
             <td width="50%"><B style="font-size:15px">DWM DAILY REPORT NO. {{ $wellinfo->urut }}</B><br>
-                <span style="font-size:10px">BSS - Halliburton, Dusit Thani Complex - 8Th Floor <br>
-                Muroor Rd - Al Nahyan - E25 - Abu Dhabi - United Arab Emirates. Tel: +971 4 303 6666</span>
+                <span style="font-size:10px">PT Step Oiltools, Graha Inti Fauzi 12th Floor <br>
+                Jl. Buncit Raya No. 22 Jakarta 12510 - Indonesia Tel: +62 21 7943352</span>
             </td>
             <td width="25%">
                 @php
@@ -1063,7 +1063,7 @@
     <table width="100%" border="" class="center">
         <!-- CHARTS -->
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 SG Base Fluids
             </td>
             <td width="5.5%" class="kanan">
@@ -1093,7 +1093,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 SG Drill Solids/Cuttings
             </td>
             <td width="5.5%" class="kanan">
@@ -1116,7 +1116,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Empty Retort Cell Wt
             </td>
             <td width="5.5%" class="kanan">
@@ -1139,7 +1139,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Cell + Wet Sample Wt
             </td>
             <td width="5.5%" class="kanan">
@@ -1162,7 +1162,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Cell + Dry Cuttings Wt
             </td>
             <td width="5.5%" class="kanan">
@@ -1185,7 +1185,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Empty Grad. Cyl. Wt
             </td>
             <td width="5.5%" class="kanan">
@@ -1208,7 +1208,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Water Vol in Cylinder
             </td>
             <td width="5.5%" class="kanan">
@@ -1231,7 +1231,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Base Fluids Vol in Cylinder
             </td>
             <td width="5.5%" class="kanan">
@@ -1254,7 +1254,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Wt Cyl+Water+BaseFluids
             </td>
             <td width="5.5%" class="kanan">
@@ -1277,7 +1277,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Mass of Wet Cuttings
             </td>
             <td width="5.5%" class="kanan">
@@ -1300,7 +1300,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Mass of Dry Cuttings
             </td>
             <td width="5.5%" class="kanan">
@@ -1323,7 +1323,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Wt of Water & Base Fluids
             </td>
             <td width="5.5%" class="kanan">
@@ -1349,7 +1349,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Mass of Base Fluids
             </td>
             <td width="5.5%" class="kanan">
@@ -1375,7 +1375,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 <b>Mud-on-Cuttings</b>
             </td>
             <td width="5.5%" class="kanan" style="font-size: 6px;">
@@ -1398,7 +1398,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 <b>Oil-on-Cuttings (w.m)</b>
             </td>
             <td width="5.5%" class="kanan">
@@ -1421,7 +1421,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 % of Cuttings Discharged
             </td>
             <td width="5.5%" class="kanan">
@@ -1444,7 +1444,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Vol Oil Discharge
             </td>
             <td width="5.5%" class="kanan">
@@ -1467,7 +1467,7 @@
             </td>
         </tr>
         <tr>
-            <td width="19.5%">
+            <td width="19.5%" class="kiri">
                 Vol Mud Discharge
             </td>
             <td width="5.5%" class="kanan">
@@ -1489,7 +1489,7 @@
             {{ $retorts->rt_cf3_volmuddisc ?? '-' }}
             </td>
             <td width="27.8%" class="bghijau">
-                BSS ACTIVITIES
+                STEP OIL TOOLS ACTIVITIES
             </td>
         </tr>
         <tr>
@@ -1526,7 +1526,7 @@
                 <b>Day</b>
             </td>
             <td width="33.7%" colspan="4" class="center">
-                BSS ENGINEERS
+                STEP OIL TOOLS ENGINEERS
             </td>
             <td width="19%" colspan="2" class="kanan">
                 <b>Night</b>
@@ -1570,8 +1570,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     {{ $retorts->rt_cf2_ooc ?? 0 }},
                     {{ $retorts->rt_cf3_ooc ?? 0 }}
                 ],
-                backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(38, 117, 68)',
+                borderColor: 'rgba(38, 117, 68)',
                 borderWidth: 1
             }]
         },
